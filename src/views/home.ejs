@@ -6,9 +6,31 @@
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-    <div>
-        Home Page EJS
+    <ul>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/users">Users</a></li>
+    </ul>
+    <div class="form">
+        <form action="/create-user" method="POST">
+         <fieldset>
+            <legend>Add Users</legend>
+        <div class="input-group">
+           <lable>Email</lable>
+           <input type="text" name="email" id="">
+        </div>
+        <div class="input-group">
+            <lable>Name</lable>
+            <input type="text" name="name" id="">
+         </div>
+         <div class="input-group">
+            <lable>City</lable>
+            <input type="text" name="city" id="">
+         </div>
+         <div>
+            <button>Save</button>
+         </div>
+         </fieldset>
+        </form>
     </div>
-    <img src="/images/1.png" alt="" class="img">
 </body>
 </html>

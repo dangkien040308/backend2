@@ -1,3 +1,61 @@
 .img {
     width: 100px;
 }
+* {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
+  }
+
+.form {
+    margin: 0 auto;
+    padding: 30px ;
+    width: 500px;
+}
+.input-group {
+    padding: 10px;
+}
+button {
+    margin: 10px;
+}
+th, td ,table {
+  padding: 15px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table {
+  width: 1000px;
+}
+.wrap {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+.active {
+  background-color: #079207;
+}

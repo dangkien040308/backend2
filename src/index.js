@@ -9,13 +9,12 @@ require('dotenv').config()
 
 configViewEngine(app)
 
-// query
+
+app.use(express.json()) // for json
+app.use(express.urlencoded({ extended: true })) // for form data
 
 app.listen(process.env.PORT,(req,res) => {
     console.log('App listen on port ',process.env.PORT)
 })
-app.use('/be',webRoutes)
+app.use('/',webRoutes)
 
-app.get('/',(req,res) => {
-    res.render('home.ejs')
-})
