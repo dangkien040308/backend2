@@ -1,5 +1,5 @@
 const connection = require('../config/database')
-const {getAllUsers , getUser , updateUser} = require('../migration/CRUDService')
+const {getAllUsers , getUser , updateUser ,deleteUser} = require('../migration/CRUDService')
 
 const getHome = async (req,res) => {
     let results = await getAllUsers()
@@ -24,9 +24,9 @@ const CreateUser = async (req,res) => {
     // )
 
     let [results , fields] = await connection.query(
-        `INSERT INTO users.users(name,email,city) VALUES(?,?,?)`,[req.body.name,req.body.email,req.body.city],
+        `INSERT INTO users.infor(name,email,city) VALUES(?,?,?)`,[req.body.name,req.body.email,req.body.city],
     )
-    res.send('Created succesfully !')
+    res.redirect('/')
 
 }
 const UpdateUser = async (req,res) => {
@@ -57,4 +57,15 @@ const getExplore = (req,res) => {
     res.render('home.ejs')
 }
 
-module.exports = { getHome , getAbout , getExplore ,CreateUser ,getUsers ,getUpdateUsers , UpdateUser}
+const confirmDeleteUser = async(req , res) => {
+    let userID = req.params.id
+    let userInfor = await getUser(userID)
+    res.render('delete.ejs',{user : userInfor})
+}
+const DeleteUser = async(req,res) => {
+    let id = req.body.id
+    await deleteUser(id)
+    res.redirect('/')
+}
+
+module.exports = { getHome , getAbout , getExplore ,CreateUser ,getUsers ,getUpdateUsers , UpdateUser , confirmDeleteUser , DeleteUser}
